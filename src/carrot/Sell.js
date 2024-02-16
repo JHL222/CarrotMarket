@@ -16,9 +16,7 @@ export default function Sell() {
         <div className="photo">
           <span>사진</span>
           <br />
-          <div className="photo1">
-            
-          </div>
+          <div className="photo1"></div>
         </div>
         <div className="Title">
           <span>제목</span>
