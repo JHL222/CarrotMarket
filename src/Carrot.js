@@ -34,8 +34,10 @@ const Carrot = () => {
     return chunkedArr;
   };
 
-  // 제품을 3개씩 나누어서 처리
-  const chunkedProducts = chunkArray(products, 3);
+  // 최신순으로 정렬 후 제품을 3개씩 나누어서 처리
+  const reversedProducts = [...products].reverse();
+  const chunkedProducts = chunkArray(reversedProducts, 3);
+
 
   // 좋아요 상태를 업데이트하기 위한 함수
   const toggleLike = (productId) => {
