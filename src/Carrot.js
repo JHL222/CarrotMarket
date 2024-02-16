@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 
 const Carrot = () => {
   // 가상의 상품 데이터
@@ -70,7 +71,10 @@ const Carrot = () => {
   };
   return (
     <div>
-      <button style={buttonStyle}>+</button>
+      <Link to="/Sell">
+        <button style={buttonStyle}>+</button>
+      </Link>
+        
       <div style={{ textAlign: 'center' }}>
         <h1>당근마켓</h1>
         {chunkedProducts.map((row, index) => (

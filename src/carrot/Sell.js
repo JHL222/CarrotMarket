@@ -1,14 +1,13 @@
 import React from "react";
 import "./Sell.css";
 import { Link } from "react-router-dom";
-import { FaCamera } from "react-icons/fa";
 
 export default function Sell() {
   return (
     <div>
       <div className="header">
         <span>내 물건 팔기</span>
-        <Link to="/Buy">
+        <Link to="/">
           <div className="close">X</div>
         </Link>
       </div>
@@ -17,10 +16,9 @@ export default function Sell() {
         <div className="photo">
           <span>사진</span>
           <br />
-          <div className="photo1"></div>
-          <div className="photo1"></div>
-          <div className="photo1"></div>
-          <div className="photo1"></div>
+          <div className="photo1">
+            
+          </div>
         </div>
         <div className="Title">
           <span>제목</span>
