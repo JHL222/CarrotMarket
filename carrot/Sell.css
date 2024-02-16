@@ -1,0 +1,114 @@
+@font-face {
+    font-family: "GongGothicMedium";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/GongGothicMedium.woff")
+        format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.header {
+    width: 100vw;
+    height: 7vh;
+    background-color: rgb(255, 110, 16);
+}
+
+.header span {
+    position: absolute;
+    top: 10px;
+    left: 25%;
+    font-family: "GongGothicMedium";
+    color: white;
+    text-align: center;
+    font-size: 200%;
+    width: 50vw;
+}
+
+.close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 5vw;
+    display: inline;
+    color: white;
+    text-align: center;
+    font-size: 200%;
+}
+.close :hover {
+    color: black;
+}
+.photo1 {
+    width: 100px;
+    height: 100px;
+    border: 2px solid;
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 10px;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.main {
+    font-family: "GongGothicMedium";
+    padding-top: 30px;
+    padding-left: 30%;
+    font-size: 150%;
+}
+
+.main span {
+    margin-top: 5vh;
+}
+
+.Title {
+    margin-top: 5vh;
+}
+
+.Price {
+    margin-top: 5vh;
+}
+
+.Describe {
+    margin-top: 5vh;
+}
+
+.title {
+    width: 40vw;
+    height: 3vh;
+    margin-top: 10px;
+    border-radius: 20px 20px 20px 20px;
+    font-size: 130%;
+}
+
+.price {
+    width: 40vw;
+    height: 3vh;
+    margin-top: 10px;
+    border-radius: 20px 20px 20px 20px;
+    font-size: 130%;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.describe {
+    width: 40vw;
+    height: 30vh;
+    margin-top: 10px;
+    border: 2px solid;
+    border-radius: 20px 20px 20px 20px;
+    font-size: 130%;
+    resize: none;
+}
+
+.submit {
+    width: 40vw;
+    margin-top: 20px;
+    position: absolute;
+    left: 30vw;
+    background-color: rgb(255, 110, 16);
+    font-family: "GongGothicMedium";
+    color: white;
+    text-align: center;
+    font-size: 200%;
+    border-radius: 20px 20px 20px 20px;
+}
