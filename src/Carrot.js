@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "./carrot/Sell.css";
 import { Link } from "react-router-dom";
 
 const Carrot = () => {
@@ -73,12 +74,15 @@ const Carrot = () => {
   };
   return (
     <div>
+    <div className="header">
+    <span>뷰리마켓</span>
+  </div>
+    <div>
       <Link to="/Sell">
         <button style={buttonStyle}>+</button>
       </Link>
         
       <div style={{ textAlign: 'center' }}>
-        <h1>당근마켓</h1>
         {chunkedProducts.map((row, index) => (
           <div key={index} style={{ display: 'flex', justifyContent: 'center' }}>
             {row.map(product => (
@@ -92,6 +96,7 @@ const Carrot = () => {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 };
