@@ -68,13 +68,13 @@ const Carrot = ({ products, setProducts }) => {
               {row.map((product) => (
                 <div
                   className="test"
-                  onClick={handleDivClick}
                   key={product.id}
                   style={{ margin: "15px", width: "250px", backgroundColor: "#FFD0B6", borderRadius: "20px" }}
                 >
                   <img
                     src={product.image}
                     alt={product.name}
+                    onClick={handleDivClick}
                     style={{
                       width: "210px",
                       height: "210px",
