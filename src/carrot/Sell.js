@@ -3,6 +3,7 @@ import "./Sell.css";
 import { Link } from "react-router-dom";
 
 export default function Sell({ addProduct }) {
+  const [id, setId] = useState(1); // 상품 ID 상태 추가
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
@@ -18,7 +19,7 @@ export default function Sell({ addProduct }) {
   const handleSubmit = () => {
     // 입력된 정보를 가공하여 상품 객체를 생성
     const newProduct = {
-      id: Math.floor(Math.random() * 1000), // 임의의 ID 생성 (실제로는 더 나은 방법을 사용해야 함)
+      id: id, 
       name: title,
       price: `${price}원`,
       description: description,
@@ -28,6 +29,7 @@ export default function Sell({ addProduct }) {
 
     // 부모 컴포넌트로부터 전달받은 함수를 호출하여 상품 추가
     addProduct(newProduct);
+    setId(id + 1);
   };
 
   return (
