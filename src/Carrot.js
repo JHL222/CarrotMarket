@@ -4,9 +4,7 @@ import { Link } from "react-router-dom";
 import { FcLike } from "react-icons/fc";
 import { FiHeart } from "react-icons/fi";
 
-
-
-const Carrot = ({ products,setProducts }) => {
+const Carrot = ({ products, setProducts }) => {
   // 각 제품을 3개씩 나열하기 위해 배열을 3개씩 자르는 함수
   const chunkArray = (array, size) => {
     const chunkedArr = [];
@@ -21,13 +19,11 @@ const Carrot = ({ products,setProducts }) => {
   const chunkedProducts = chunkArray(reversedProducts, 3);
 
   // 좋아요 상태를 업데이트하기 위한 함수
-const toggleLike = (productId) => {
-  setProducts((prevProducts) =>
-    prevProducts.map((product) =>
-      product.id === productId ? { ...product, like: !product.like } : product
-    )
-  );
-};
+  const toggleLike = (productId) => {
+    setProducts((prevProducts) =>
+      prevProducts.map((product) => (product.id === productId ? { ...product, like: !product.like } : product))
+    );
+  };
 
   // 상품의 좋아요 버튼 컴포넌트
   const LikeButton = ({ product }) => {
@@ -46,8 +42,7 @@ const toggleLike = (productId) => {
     return (
       <div style={{ textAlign: "center" }}>
         <div style={heartStyle} onClick={handleClick}>
-          {product.like ? <FcLike /> : <FiHeart />
-}
+          {product.like ? <FcLike /> : <FiHeart />}
         </div>
       </div>
     );
@@ -110,6 +105,8 @@ const buttonStyle = {
   fontSize: "50px",
   border: "none",
   boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.2)",
+  cursor: "pointer",
+  transition: "transform 0.3s",
 };
 
 export default Carrot;
