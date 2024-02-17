@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import "./carrot/Sell.css";
 import { Link } from "react-router-dom";
+import { FcLike } from "react-icons/fc";
+import { FiHeart } from "react-icons/fi";
+
+
 
 const Carrot = () => {
   // 가상의 상품 데이터
@@ -63,7 +67,8 @@ const Carrot = () => {
     return (
       <div style={{ textAlign: "center" }}>
         <div style={heartStyle} onClick={handleClick}>
-          {product.like ? "❤️" : "🖤"}
+          {product.like ? <FcLike /> : <FiHeart />
+}
         </div>
       </div>
     );
