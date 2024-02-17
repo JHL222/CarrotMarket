@@ -47,11 +47,11 @@ const Carrot = ({ products, setProducts }) => {
       </div>
     );
   };
-  const handleDivClick = () => {
-    // 페이지 이동을 원하는 경로로 수정해주세요
-    // 예를 들어, "./detail"로 페이지 이동하고 싶다면 아래와 같이 작성합니다.
-    window.location.href = "./detail";
-  };
+  // const handleDivClick = () => {
+  //   // 페이지 이동을 원하는 경로로 수정해주세요
+  //   // 예를 들어, "./detail"로 페이지 이동하고 싶다면 아래와 같이 작성합니다.
+  //   window.location.href = "./Detail";
+  // };
   return (
     <div>
       <div className="header">
@@ -71,19 +71,20 @@ const Carrot = ({ products, setProducts }) => {
                   key={product.id}
                   style={{ margin: "15px", width: "250px", backgroundColor: "#FFD0B6", borderRadius: "20px" }}
                 >
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    onClick={handleDivClick}
-                    style={{
-                      width: "210px",
-                      height: "210px",
-                      objectFit: "cover",
-                      marginTop: "15px",
-                      borderRadius: "20px",
-                      border: "2px solid black",
-                    }}
-                  />
+                  <Link to = '/Detail'>
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      style={{
+                        width: "210px",
+                        height: "210px",
+                        objectFit: "cover",
+                        marginTop: "15px",
+                        borderRadius: "20px",
+                        border: "2px solid black",
+                      }}
+                    />
+                  </Link>
                   <p style={{ marginLeft: "12px", textAlign: "left", fontSize: "15px" }}>{product.name}</p>
                   <b>
                     <p style={{ marginLeft: "12px", textAlign: "left", fontSize: "15px" }}>{product.price}</p>
