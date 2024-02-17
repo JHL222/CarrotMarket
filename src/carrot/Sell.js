@@ -33,11 +33,19 @@ export default function Sell({ addProduct }) {
       like: false,
     };
 
+
+
     // 부모 컴포넌트로부터 전달받은 함수를 호출하여 상품 추가
     addProduct(newProduct);
     // 최신 ID를 업데이트하고 로컬 스토리지에 저장
     localStorage.setItem("latestId", String(id + 1));
     setId(id + 1);
+    if (!title || !price || !description || !imagePreview) {
+      alert("모두 작성해주세요");
+      return  // 하나라도 비어 있다면 함수 종료
+    }else{
+      
+    }
   };
 
   return (
@@ -79,9 +87,7 @@ export default function Sell({ addProduct }) {
           />
         </div>
       </div>
-      <Link to="/"> 
         <div className="submit" onClick={handleSubmit}>작성완료</div>
-      </Link>
     </div>
   );
 }
