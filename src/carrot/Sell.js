@@ -3,23 +3,33 @@ import "./Sell.css";
 import { Link } from "react-router-dom";
 
 export default function Sell({ addProduct }) {
+  const [id, setId] = useState(1); // 상품 ID 상태 추가
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
+  const [imageFile, setImageFile] = useState(null);
+  const [imagePreview, setImagePreview] = useState(null);
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setImageFile(file);
+    setImagePreview(URL.createObjectURL(file));
+  };
 
   const handleSubmit = () => {
     // 입력된 정보를 가공하여 상품 객체를 생성
     const newProduct = {
-      id: Math.floor(Math.random() * 1000), // 임의의 ID 생성 (실제로는 더 나은 방법을 사용해야 함)
+      id: id, 
       name: title,
       price: `${price}원`,
       description: description,
-      image: "./image/1.jpg", // 예시로 하드코딩된 이미지 경로
+      image: imagePreview, // 미리보기 이미지 경로 사용
       like: false,
     };
 
     // 부모 컴포넌트로부터 전달받은 함수를 호출하여 상품 추가
     addProduct(newProduct);
+    setId(id + 1);
   };
 
   return (
@@ -35,7 +45,9 @@ export default function Sell({ addProduct }) {
         <div className="photo">
           <span>사진</span>
           <br />
-          <div className="photo1"></div>
+          {/* 이미지 미리보기 */}
+          {imagePreview && <img src={imagePreview} alt="Product Preview" className="preview-image" />}
+          <input type="file" accept="image/*" onChange={handleImageChange} />
         </div>
         <div className="Title">
           <span>제목</span>
@@ -59,7 +71,9 @@ export default function Sell({ addProduct }) {
           />
         </div>
       </div>
-      <Link to="/"> <div className="submit" onClick={handleSubmit}>작성완료</div>       </Link>
+      <Link to="/"> 
+        <div className="submit" onClick={handleSubmit}>작성완료</div>
+      </Link>
     </div>
   );
 }

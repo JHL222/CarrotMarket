@@ -47,6 +47,11 @@ const Carrot = ({ products, setProducts }) => {
       </div>
     );
   };
+  const handleDivClick = () => {
+    // 페이지 이동을 원하는 경로로 수정해주세요
+    // 예를 들어, "./detail"로 페이지 이동하고 싶다면 아래와 같이 작성합니다.
+    window.location.href = "./detail";
+  };
   return (
     <div>
       <div className="header">
@@ -62,6 +67,8 @@ const Carrot = ({ products, setProducts }) => {
             <div key={index} style={{ display: "flex", justifyContent: "center" }}>
               {row.map((product) => (
                 <div
+                  className="test"
+                  onClick={handleDivClick}
                   key={product.id}
                   style={{ margin: "15px", width: "250px", backgroundColor: "#FFD0B6", borderRadius: "20px" }}
                 >
