@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Sell.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 
 export default function Sell({ addProduct }) {
   const [id, setId] = useState(1); // 상품 ID 상태 추가 
@@ -9,6 +9,7 @@ export default function Sell({ addProduct }) {
   const [description, setDescription] = useState("");
   const [imageFile, setImageFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
+  const navigate = useNavigate();
  // useEffect를 사용하여 컴포넌트가 마운트될 때 고유한 ID 생성
  useEffect(() => {
   // 로컬 스토리지에서 최신 ID를 가져오거나 새로운 ID 생성
@@ -32,19 +33,17 @@ export default function Sell({ addProduct }) {
       image: imagePreview, // 미리보기 이미지 경로 사용
       like: false,
     };
-
-
-
+    if (!title || !price || !description || !imagePreview) {
+      alert("모두 작성해주세요");
+      return  // 하나라도 비어 있다면 함수 종료
+    }
     // 부모 컴포넌트로부터 전달받은 함수를 호출하여 상품 추가
     addProduct(newProduct);
     // 최신 ID를 업데이트하고 로컬 스토리지에 저장
     localStorage.setItem("latestId", String(id + 1));
     setId(id + 1);
-    if (!title || !price || !description || !imagePreview) {
-      alert("모두 작성해주세요");
-      return  // 하나라도 비어 있다면 함수 종료
-    }else{
-      
+    if(title && price && description && imagePreview){
+      navigate("/");
     }
   };
 
