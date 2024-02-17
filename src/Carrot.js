@@ -6,30 +6,7 @@ import { FiHeart } from "react-icons/fi";
 
 
 
-const Carrot = () => {
-  // 가상의 상품 데이터
-  const [products, setProducts] = useState([
-    { id: 1, name: "당근", price: "1000원", image: "./image/1.jpg", like: false },
-    { id: 2, name: "고구마", price: "2000원", image: "./image/1.jpg", like: false },
-    { id: 3, name: "토마토", price: "1500원", image: "./image/1.jpg", like: false },
-    { id: 4, name: "오이", price: "1200원", image: "./image/1.jpg", like: false },
-    { id: 5, name: "상추", price: "800원", image: "./image/1.jpg", like: false },
-    { id: 6, name: "양파", price: "1600원", image: "./image/1.jpg", like: false },
-    { id: 7, name: "감자", price: "1300원", image: "./image/1.jpg", like: false },
-    { id: 8, name: "고구마", price: "1700원", image: "./image/1.jpg", like: false },
-    { id: 9, name: "호박", price: "1100원", image: "./image/1.jpg", like: false },
-    { id: 10, name: "당근", price: "1000원", image: "./image/1.jpg", like: false },
-    { id: 11, name: "파프리카", price: "2000원", image: "./image/1.jpg", like: false },
-    { id: 12, name: "토마토", price: "1500원", image: "./image/1.jpg", like: false },
-    { id: 13, name: "오이", price: "1200원", image: "./image/1.jpg", like: false },
-    { id: 14, name: "상추", price: "800원", image: "./image/1.jpg", like: false },
-    { id: 15, name: "양파", price: "1600원", image: "./image/1.jpg", like: false },
-    { id: 16, name: "감자", price: "1300원", image: "./image/1.jpg", like: false },
-    { id: 17, name: "고구마", price: "1700원", image: "./image/1.jpg", like: false },
-    { id: 18, name: "호박", price: "1100원", image: "./image/1.jpg", like: false },
-    // 다른 상품 데이터도 추가할 수 있습니다.
-  ]);
-
+const Carrot = ({ products,setProducts }) => {
   // 각 제품을 3개씩 나열하기 위해 배열을 3개씩 자르는 함수
   const chunkArray = (array, size) => {
     const chunkedArr = [];
@@ -44,11 +21,13 @@ const Carrot = () => {
   const chunkedProducts = chunkArray(reversedProducts, 3);
 
   // 좋아요 상태를 업데이트하기 위한 함수
-  const toggleLike = (productId) => {
-    setProducts((prevProducts) =>
-      prevProducts.map((product) => (product.id === productId ? { ...product, like: !product.like } : product))
-    );
-  };
+const toggleLike = (productId) => {
+  setProducts((prevProducts) =>
+    prevProducts.map((product) =>
+      product.id === productId ? { ...product, like: !product.like } : product
+    )
+  );
+};
 
   // 상품의 좋아요 버튼 컴포넌트
   const LikeButton = ({ product }) => {
