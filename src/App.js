@@ -16,8 +16,8 @@ export default function App() {
     <div className="App">
       <Routes>
       <Route path="/" element={<Carrot products={products} setProducts={setProducts} />} />
-       <Route path="/Sell" element={<Sell addProduct={addProduct} />} />
-       <Route path="/Detail" element = {<Detail/>} />
+      <Route path="/Sell" element={<Sell addProduct={addProduct} />} />
+      <Route path="/Detail" element = {<Detail/>} />
       </Routes>
     </div>
   );
