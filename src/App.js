@@ -12,12 +12,23 @@ export default function App() {
     setProducts((prevProducts) => [...prevProducts, product]);
   };
 
+  const toggleLike = (productId) => {
+    setProducts((prevProducts) =>
+      prevProducts.map((product) =>
+        product.id === productId ? { ...product, like: !product.like } : product
+      )
+    );
+  };
+
   return (
     <div className="App">
       <Routes>
-      <Route path="/" element={<Carrot products={products} setProducts={setProducts} />} />
-      <Route path="/Sell" element={<Sell addProduct={addProduct} />} />
-      <Route path="/Detail" element = {<Detail/>} />
+        <Route
+          path="/"
+          element={<Carrot products={products} toggleLike={toggleLike} />}
+        />
+        <Route path="/Sell" element={<Sell addProduct={addProduct} />} />
+        <Route path="/Detail" element={<Detail products={products} />} />
       </Routes>
     </div>
   );

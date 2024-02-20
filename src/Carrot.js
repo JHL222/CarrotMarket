@@ -1,19 +1,20 @@
+// Carrot.js
+
 import React from "react";
 import "./carrot/Sell.css";
-import { Link,  useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcLike } from "react-icons/fc";
 import { FiHeart } from "react-icons/fi";
 
-const Carrot = ({ products, setProducts }) => {
-  
+const Carrot = ({ products, toggleLike }) => {
   const navigate = useNavigate();
-  
-
 
   const movedetail = (id, name, price, description, like, image, contact) => {
     const likeString = String(like);
-    navigate(`/detail?id=${id}&title=${encodeURIComponent(name)}&price=${price}&description=${description}&like=${likeString}&image=${image}&contact=${contact}`);
-  }
+    navigate(
+      `/detail?id=${id}&title=${encodeURIComponent(name)}&price=${price}&description=${description}&like=${likeString}&image=${image}&contact=${contact}`
+    );
+  };
 
   // 각 제품을 3개씩 나열하기 위해 배열을 3개씩 자르는 함수
   const chunkArray = (array, size) => {
@@ -27,13 +28,6 @@ const Carrot = ({ products, setProducts }) => {
   // 최신순으로 정렬 후 제품을 3개씩 나누어서 처리
   const reversedProducts = [...products].reverse();
   const chunkedProducts = chunkArray(reversedProducts, 3);
-
-  // 좋아요 상태를 업데이트하기 위한 함수
-  const toggleLike = (productId) => {
-    setProducts((prevProducts) =>
-      prevProducts.map((product) => (product.id === productId ? { ...product, like: !product.like } : product))
-    );
-  };
 
   // 상품의 좋아요 버튼 컴포넌트
   const LikeButton = ({ product }) => {
