@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React from "react";
 import "./carrot/Sell.css";
 import { Link,  useNavigate } from "react-router-dom";
 import { FcLike } from "react-icons/fc";
@@ -10,8 +10,9 @@ const Carrot = ({ products, setProducts }) => {
   
 
 
-  const movedetail = (id, name, price, description, image) => {
-    navigate(`/detail?id=${id}&title=${encodeURIComponent(name)}&price=${price}&description=${description}&image=${image}`);
+  const movedetail = (id, name, price, description, like, image) => {
+    const likeString = String(like);
+    navigate(`/detail?id=${id}&title=${encodeURIComponent(name)}&price=${price}&description=${description}&like=${likeString}&image=${image}`);
   }
 
   // 각 제품을 3개씩 나열하기 위해 배열을 3개씩 자르는 함수
@@ -78,7 +79,7 @@ const Carrot = ({ products, setProducts }) => {
                 >
                   
                     <img
-                    onClick={() => movedetail(product.id, product.name, product.price, product.description, product.image)}
+                    onClick={() => movedetail(product.id, product.name, product.price, product.description, product.like, product.image)}
                       src={product.image}
                       alt={product.name}
                       style={{

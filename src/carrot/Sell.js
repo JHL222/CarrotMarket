@@ -7,6 +7,7 @@ export default function Sell({ addProduct }) {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
+  const [like, setLike] = useState(false);
   const [imageFile, setImageFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ export default function Sell({ addProduct }) {
       price: `${price}원`,
       description: description,
       image: imagePreview, // 미리보기 이미지 경로 사용
-      like: false,
+      like: like,
     };
     if (!title || !price || !description || !imagePreview) {
       alert("모두 작성해주세요");
@@ -87,7 +88,7 @@ export default function Sell({ addProduct }) {
           />
         </div>
       </div>
-        <div className="submit" onClick={handleSubmit}>작성완료</div>
+        <div className="submit" onChange = {() => {setLike(false)}}onClick={handleSubmit}>작성완료</div>
     </div>
   );
 }
