@@ -10,9 +10,9 @@ const Carrot = ({ products, setProducts }) => {
   
 
 
-  const movedetail = (id, name, price, description, like, image) => {
+  const movedetail = (id, name, price, description, like, image, contact) => {
     const likeString = String(like);
-    navigate(`/detail?id=${id}&title=${encodeURIComponent(name)}&price=${price}&description=${description}&like=${likeString}&image=${image}`);
+    navigate(`/detail?id=${id}&title=${encodeURIComponent(name)}&price=${price}&description=${description}&like=${likeString}&image=${image}&contact=${contact}`);
   }
 
   // 각 제품을 3개씩 나열하기 위해 배열을 3개씩 자르는 함수
@@ -79,7 +79,7 @@ const Carrot = ({ products, setProducts }) => {
                 >
                   
                     <img
-                    onClick={() => movedetail(product.id, product.name, product.price, product.description, product.like, product.image)}
+                    onClick={() => movedetail(product.id, product.name, product.price, product.description, product.like, product.image, product.contact)}
                       src={product.image}
                       alt={product.name}
                       style={{

@@ -8,6 +8,7 @@ export default function Sell({ addProduct }) {
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const [like, setLike] = useState(false);
+  const [contact, setContact] = useState("");
   const [imageFile, setImageFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const navigate = useNavigate();
@@ -33,8 +34,9 @@ export default function Sell({ addProduct }) {
       description: description,
       image: imagePreview, // 미리보기 이미지 경로 사용
       like: like,
+      contact: contact,
     };
-    if (!title || !price || !description || !imagePreview) {
+    if (!title || !price || !description || !imagePreview || !contact) {
       alert("모두 작성해주세요");
       return  // 하나라도 비어 있다면 함수 종료
     }
@@ -44,7 +46,7 @@ export default function Sell({ addProduct }) {
     // 최신 ID를 업데이트하고 로컬 스토리지에 저장
     localStorage.setItem("latestId", String(id + 1));
     setId(id + 1);
-    if(title && price && description && imagePreview){
+    if(title && price && description && imagePreview && contact){
       navigate("/");
     }
   };
@@ -86,6 +88,11 @@ export default function Sell({ addProduct }) {
             maxLength="200"
             required
           />
+        </div>
+        <div className="Contact">
+          <span>연락처</span>
+          <br />
+          <input type="text" className="contact" value={contact} onChange={(e) => setContact(e.target.value)} placeholder = "카카오톡 아이디나 전화번호를 남겨주세요." required />
         </div>
       </div>
         <div className="submit" onChange = {() => {setLike(false)}}onClick={handleSubmit}>작성완료</div>

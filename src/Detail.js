@@ -14,6 +14,13 @@ export default function Detail() {
   const description = searchParams.get("description");
   const image = searchParams.get("image");
   const like = searchParams.get("like") === "true";
+  const contact = searchParams.get("contact");
+
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const handleContactClick = () => {
+    setIsPopupOpen(true); // 연락하기 div 클릭 시 팝업창 열림
+  };
 
   return (
     <div>
@@ -41,14 +48,29 @@ export default function Detail() {
         </div>
 
         <div className='detailprice'>
-          <div>
+          <div className='heart'>
             {like ? <FcLike /> : <FiHeart />}
           </div>
+
           <div className='pricetext'>
             {price}
           </div>
+
+          <div>
+            <div className="detailsubmit" onClick={handleContactClick}>연락하기</div>
+          </div>
         </div>
       </div>
+      {isPopupOpen && (
+        <div className="popup">
+          {/* 팝업창 내용 */}
+          <div className="popup-content">
+            <h3>연락처</h3>
+            <p>{contact}</p>
+            <button className='popupclose' onClick={() => setIsPopupOpen(false)}>닫기</button> {/* 팝업창 닫기 버튼 */}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
