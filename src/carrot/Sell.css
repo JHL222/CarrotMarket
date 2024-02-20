@@ -177,10 +177,9 @@ input[type="number"]::-webkit-inner-spin-button {
   font-size: 130%;
 }
 
-.detailprice{
+.footer{
   position: absolute;
   bottom: 0px;
-  border: 1px solid;
   width: 60vw;
   height: 10vh;
   background-color: lightgrey;

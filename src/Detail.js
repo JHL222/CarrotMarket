@@ -47,7 +47,7 @@ export default function Detail() {
           </p>
         </div>
 
-        <div className='detailprice'>
+        <div className='footer'>
           <div className='heart'>
             {like ? <FcLike /> : <FiHeart />}
           </div>
