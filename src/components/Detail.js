@@ -5,9 +5,9 @@ import { Link, useLocation } from "react-router-dom";
 import { FcLike } from "react-icons/fc";
 import { FiHeart } from "react-icons/fi";
 
-const Detail = ({ toggleLike }) => {
+const Detail = ({ toggleLike, onDelete }) => {
   const location = useLocation();
-  const { id, title, price, description, like, image, contact } = location.state;
+  const { id, title, price, description, like, image, contact,password } = location.state;
 
   const initialLike = like || false;
 
@@ -22,6 +22,11 @@ const Detail = ({ toggleLike }) => {
     const newLike = !isLike;
     setIsLike(newLike);
     toggleLike(id, newLike); // Toggle like status and update it through the toggleLike function from App component
+  };
+
+  const handleDelete = () => {
+    
+    onDelete(id); // Call onDelete function with the ID of the product to be deleted
   };
 
   return (
@@ -60,6 +65,7 @@ const Detail = ({ toggleLike }) => {
 
           <div>
             <div className="detailsubmit" onClick={handleContactClick}>연락하기</div>
+            <div onClick={handleDelete}>삭제</div> {/* Add delete button */}
           </div>
         </div>
       </div>

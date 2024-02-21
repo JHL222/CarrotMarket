@@ -1,4 +1,5 @@
 // App.js
+
 import React, { useState } from "react";
 import "./App.css";
 import Carrot from "./components/Carrot";
@@ -21,6 +22,11 @@ export default function App() {
     setProducts(updatedProducts);
   };
 
+  const deleteProduct = (productId) => {
+    const updatedProducts = products.filter((product) => product.id !== productId);
+    setProducts(updatedProducts);
+  };
+
   return (
     <div className="App">
       <Routes>
@@ -31,9 +37,10 @@ export default function App() {
         <Route path="/Sell" element={<Sell addProduct={addProduct} />} />
         <Route
           path="/Detail"
-          element={<Detail products={products} toggleLike={toggleLike} />}
+          element={<Detail products={products} toggleLike={toggleLike} onDelete={deleteProduct} />}
         />
       </Routes>
     </div>
   );
 }
+
