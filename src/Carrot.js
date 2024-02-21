@@ -9,14 +9,21 @@ import { FiHeart } from "react-icons/fi";
 const Carrot = ({ products, toggleLike }) => {
   const navigate = useNavigate();
 
-  const movedetail = (id, name, price, description, like, image, contact) => {
-    const likeString = String(like);
-    navigate(
-      `/detail?id=${id}&title=${encodeURIComponent(name)}&price=${price}&description=${description}&like=${likeString}&image=${image}&contact=${contact}`
-    );
+  const movedetail = (id, title, price, description, like, image, contact) => {
+    navigate('/detail', {
+      state: {
+        id,
+        title,
+        price,
+        description,
+        like,
+        image,
+        contact
+      }
+    });
   };
 
-  // 각 제품을 3개씩 나열하기 위해 배열을 3개씩 자르는 함수
+  // 나누는 함수
   const chunkArray = (array, size) => {
     const chunkedArr = [];
     for (let i = 0; i < array.length; i += size) {
@@ -25,11 +32,9 @@ const Carrot = ({ products, toggleLike }) => {
     return chunkedArr;
   };
 
-  // 최신순으로 정렬 후 제품을 3개씩 나누어서 처리
   const reversedProducts = [...products].reverse();
   const chunkedProducts = chunkArray(reversedProducts, 3);
 
-  // 상품의 좋아요 버튼 컴포넌트
   const LikeButton = ({ product }) => {
     const heartStyle = {
       marginLeft: "12px",
@@ -40,7 +45,7 @@ const Carrot = ({ products, toggleLike }) => {
     };
 
     const handleClick = () => {
-      toggleLike(product.id);
+      toggleLike(product.id, !product.like); // Toggle like status when LikeButton is clicked
     };
 
     return (
@@ -71,21 +76,19 @@ const Carrot = ({ products, toggleLike }) => {
                   key={product.id}
                   style={{ margin: "15px", width: "250px", backgroundColor: "#FFD0B6", borderRadius: "20px" }}
                 >
-                  
-                    <img
+                  <img
                     onClick={() => movedetail(product.id, product.name, product.price, product.description, product.like, product.image, product.contact)}
-                      src={product.image}
-                      alt={product.name}
-                      style={{
-                        width: "210px",
-                        height: "210px",
-                        objectFit: "cover",
-                        marginTop: "15px",
-                        borderRadius: "20px",
-                        border: "2px solid black",
-                      }}
-                    />
-                  
+                    src={product.image}
+                    alt={product.name}
+                    style={{
+                      width: "210px",
+                      height: "210px",
+                      objectFit: "cover",
+                      marginTop: "15px",
+                      borderRadius: "20px",
+                      border: "2px solid black",
+                    }}
+                  />
                   <p style={{ marginLeft: "12px", textAlign: "left", fontSize: "15px" }}>{product.name}</p>
                   <b>
                     <p style={{ marginLeft: "12px", textAlign: "left", fontSize: "15px" }}>{product.price}</p>

@@ -1,36 +1,27 @@
+// Detail.js
 import React, { useState } from 'react';
 import "./carrot/Sell.css";
 import { Link, useLocation } from "react-router-dom";
 import { FcLike } from "react-icons/fc";
 import { FiHeart } from "react-icons/fi";
 
-const Detail = ({ products }) => {
+const Detail = ({ toggleLike }) => {
   const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
+  const { id, title, price, description, like, image, contact } = location.state;
 
-  const title = searchParams.get("title");
-  const price = searchParams.get("price");
-  const description = searchParams.get("description");
-  const image = searchParams.get("image");
-  const productId = parseInt(searchParams.get("id"));
-  const contact = searchParams.get("contact");
+  const initialLike = like || false;
 
-  // Find the product object from products array based on productId
-  const product = products.find(product => product.id === productId);
-  const initialLike = product ? product.like : false;
-
-  const [like, setLike] = useState(initialLike);
+  const [isLike, setIsLike] = useState(initialLike);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const handleContactClick = () => {
     setIsPopupOpen(true); // Open popup when "Contact" is clicked
   };
 
-  const toggleLike = () => {
-    setLike(!like);
-    if (product) {
-      product.like = !like;
-    }
+  const handleLikeClick = () => {
+    const newLike = !isLike;
+    setIsLike(newLike);
+    toggleLike(id, newLike); // Toggle like status and update it through the toggleLike function from App component
   };
 
   return (
@@ -59,8 +50,8 @@ const Detail = ({ products }) => {
         </div>
 
         <div className='footer'>
-          <div className='heart' onClick={toggleLike}>
-            {like ? <FcLike /> : <FiHeart />}
+          <div className='heart' onClick={handleLikeClick}>
+            {isLike ? <FcLike /> : <FiHeart />}
           </div>
 
           <div className='pricetext'>
