@@ -84,7 +84,7 @@ const Detail = ({ toggleLike, onDelete }) => {
           <div className="popup-content">
             <h3>연락처</h3>
             <p>{contact}</p>
-            <button className='popupclose' onClick={() => setIsPopupOpen(false)}>닫기</button> {/* Close popup button */}
+            <button className='popupclose' onClick={() => setIsPopupOpen(false)}>닫기</button>
           </div>
         </div>
       )}
@@ -94,8 +94,8 @@ const Detail = ({ toggleLike, onDelete }) => {
           <div className="popup-content">
             <h3>비밀번호</h3>
             <input type="password" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
-            <button className='popupclose' onClick={handleDelete}>확인</button> {/* Close popup button */}
           </div>
+          <button className='popup1close' onClick={handleDelete}>확인</button>
         </div>
       )}
     </div>

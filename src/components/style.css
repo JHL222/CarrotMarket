@@ -291,3 +291,19 @@ input[type="number"]::-webkit-inner-spin-button {
   transform: translate(-50%, -50%);
   font-size: 180%;
 }
+
+.popup1close{
+  border: none;
+  width: 10vw;
+  height: 5vh;
+  margin-top: 30px;
+  background-color: rgb(255, 110, 16);
+  color: white;
+  text-align: center;
+  border-radius: 20px 20px 20px 20px;
+  padding: 10px;
+  font-size: 90%;
+  font-family: "GongGothicMedium";
+  position: absolute;
+  left: 40%;
+}
