@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Sell.css";
+import "./style.css";
 import { Link, useNavigate} from "react-router-dom";
 
 export default function Sell({ addProduct }) {

@@ -1,6 +1,6 @@
 // Detail.js
 import React, { useState } from 'react';
-import "./carrot/Sell.css";
+import "./style.css";
 import { Link, useLocation } from "react-router-dom";
 import { FcLike } from "react-icons/fc";
 import { FiHeart } from "react-icons/fi";

@@ -1,7 +1,7 @@
 // Carrot.js
 
 import React from "react";
-import "./carrot/Sell.css";
+import "./style.css";
 import { Link, useNavigate } from "react-router-dom";
 import { FcLike } from "react-icons/fc";
 import { FiHeart } from "react-icons/fi";

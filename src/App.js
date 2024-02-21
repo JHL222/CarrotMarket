@@ -1,9 +1,9 @@
 // App.js
 import React, { useState } from "react";
 import "./App.css";
-import Carrot from "./Carrot";
-import Sell from "./carrot/Sell";
-import Detail from "./Detail";
+import Carrot from "./components/Carrot";
+import Sell from "./components/Sell";
+import Detail from "./components/Detail";
 import { Routes, Route, useNavigate } from "react-router-dom";
 
 export default function App() {
