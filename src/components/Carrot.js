@@ -9,7 +9,7 @@ import { FiHeart } from "react-icons/fi";
 const Carrot = ({ products, toggleLike }) => {
   const navigate = useNavigate();
 
-  const movedetail = (id, title, price, description, like, image, contact) => {
+  const movedetail = (id, title, price, description, like, image, contact, password) => {
     navigate('/detail', {
       state: {
         id,
@@ -18,7 +18,8 @@ const Carrot = ({ products, toggleLike }) => {
         description,
         like,
         image,
-        contact
+        contact,
+        password
       }
     });
   };

@@ -49,9 +49,12 @@ body{
 
 .main {
   font-family: "GongGothicMedium";
+  width: 100vw;
+  height: 80vh;
   padding-top: 30px;
   padding-left: 30%;
   font-size: 150%;
+  overflow: scroll;
 }
 
 .main span {
@@ -71,6 +74,9 @@ body{
 }
 
 .Contact{
+  margin-top: 5vh;
+}
+.Password{
   margin-top: 5vh;
 }
 
@@ -99,7 +105,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .describe {
   width: 40vw;
-  height: 30vh;
+  height: 15vh;
   margin-top: 10px;
   border: 2px solid;
   border-radius: 20px 20px 20px 20px;
@@ -115,6 +121,24 @@ input[type="number"]::-webkit-inner-spin-button {
   font-size: 130%;
   padding: 20px;
 }
+
+.password{
+  width: 40vw;
+  height: 3vh;
+  margin-top: 10px;
+  border-radius: 20px 20px 20px 20px;
+  font-size: 130%;
+  padding: 20px;
+}
+.repassword{
+  width: 40vw;
+  height: 3vh;
+  margin-top: 10px;
+  border-radius: 20px 20px 20px 20px;
+  font-size: 130%;
+  padding: 20px;
+}
+
 .submit {
   width: 40vw;
   margin-top: 20px;

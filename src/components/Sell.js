@@ -9,6 +9,8 @@ export default function Sell({ addProduct }) {
   const [description, setDescription] = useState("");
   const [like, setLike] = useState(false);
   const [contact, setContact] = useState("");
+  const [password, setPassword] = useState("");
+  const [repassword, setRepassword] = useState("");
   const [imageFile, setImageFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const navigate = useNavigate();
@@ -40,15 +42,19 @@ export default function Sell({ addProduct }) {
       alert("모두 작성해주세요");
       return  // 하나라도 비어 있다면 함수 종료
     }
-    
-    // 부모 컴포넌트로부터 전달받은 함수를 호출하여 상품 추가
-    addProduct(newProduct);
-    // 최신 ID를 업데이트하고 로컬 스토리지에 저장
-    localStorage.setItem("latestId", String(id + 1));
-    setId(id + 1);
-    if(title && price && description && imagePreview && contact){
-      navigate("/");
+    if (password == repassword){
+      // 부모 컴포넌트로부터 전달받은 함수를 호출하여 상품 추가
+      addProduct(newProduct);
+      // 최신 ID를 업데이트하고 로컬 스토리지에 저장
+      localStorage.setItem("latestId", String(id + 1));
+      setId(id + 1);
+      if(title && price && description && imagePreview && contact){
+        navigate("/");
+      }
+    }else{
+      alert("비밀번호가 다릅니다.");
     }
+
   };
 
   return (
@@ -89,13 +95,28 @@ export default function Sell({ addProduct }) {
             required
           />
         </div>
+        
         <div className="Contact">
           <span>연락처</span>
           <br />
           <input type="text" className="contact" value={contact} onChange={(e) => setContact(e.target.value)} placeholder = "카카오톡 아이디나 전화번호를 남겨주세요." required />
         </div>
+
+        <div className="Password">
+          <span>비밀번호</span>
+          <br />
+          <input type="password" className="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder = "수정 및 삭제에 필요한 비밀번호를 입력해주세요." required />
+        </div>
+
+        <div className="Password">
+          
+          <span>비밀번호 확인</span>
+          <br />
+          <input type="password" className="repassword" value={repassword} onChange={(e) => setRepassword(e.target.value)} placeholder = "비밀번호를 다시 입력해주세요." required />
+        </div>
+
       </div>
-        <div className="submit" onChange = {() => {setLike(false)}}onClick={handleSubmit}>작성완료</div>
+      <div className="submit" onChange = {() => {setLike(false)}}onClick={handleSubmit}>작성완료</div>
     </div>
   );
 }
