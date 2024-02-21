@@ -22,6 +22,7 @@ const Carrot = ({ products, toggleLike }) => {
         password
       }
     });
+
   };
 
   // 나누는 함수
@@ -78,7 +79,7 @@ const Carrot = ({ products, toggleLike }) => {
                   style={{ margin: "15px", width: "250px", backgroundColor: "#FFD0B6", borderRadius: "20px" }}
                 >
                   <img
-                    onClick={() => movedetail(product.id, product.name, product.price, product.description, product.like, product.image, product.contact)}
+                    onClick={() => movedetail(product.id, product.name, product.price, product.description, product.like, product.image, product.contact, product.password)}
                     src={product.image}
                     alt={product.name}
                     style={{

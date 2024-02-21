@@ -1,34 +1,43 @@
-// Detail.js
 import React, { useState } from 'react';
 import "./style.css";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcLike } from "react-icons/fc";
 import { FiHeart } from "react-icons/fi";
 
 const Detail = ({ toggleLike, onDelete }) => {
+  const navigate = useNavigate();
   const location = useLocation();
-  const { id, title, price, description, like, image, contact,password } = location.state;
+  const { id, title, price, description, like, image, contact, password } = location.state;
 
   const initialLike = like || false;
 
   const [isLike, setIsLike] = useState(initialLike);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [isPopup1Open, setIsPopup1Open] = useState(false);
+  const [passwordInput, setPasswordInput] = useState(""); // 사용자가 입력한 비밀번호 상태 추가
 
   const handleContactClick = () => {
-    setIsPopupOpen(true); // Open popup when "Contact" is clicked
+    setIsPopupOpen(true);
+  };
+
+  const handleDeleteClick = () => {
+    setIsPopup1Open(true);
   };
 
   const handleLikeClick = () => {
     const newLike = !isLike;
     setIsLike(newLike);
-    toggleLike(id, newLike); // Toggle like status and update it through the toggleLike function from App component
+    toggleLike(id, newLike);
   };
 
   const handleDelete = () => {
-    
-    onDelete(id); // Call onDelete function with the ID of the product to be deleted
+    if(password === passwordInput){ // 실제 비밀번호와 사용자가 입력한 비밀번호를 비교
+      onDelete(id);
+      navigate("/");
+    } else {
+      alert('비밀번호가 다릅니다.');
+    }
   };
-
   return (
     <div>
       <div className="header">
@@ -46,6 +55,7 @@ const Detail = ({ toggleLike, onDelete }) => {
           <p className='titletext'>
             {title}
           </p>
+          <div className="detaildelete" onClick={handleDeleteClick}>삭제</div> {/* Add delete button */}
         </div>
 
         <div className='detaildescription'>
@@ -65,7 +75,6 @@ const Detail = ({ toggleLike, onDelete }) => {
 
           <div>
             <div className="detailsubmit" onClick={handleContactClick}>연락하기</div>
-            <div onClick={handleDelete}>삭제</div> {/* Add delete button */}
           </div>
         </div>
       </div>
@@ -76,6 +85,16 @@ const Detail = ({ toggleLike, onDelete }) => {
             <h3>연락처</h3>
             <p>{contact}</p>
             <button className='popupclose' onClick={() => setIsPopupOpen(false)}>닫기</button> {/* Close popup button */}
+          </div>
+        </div>
+      )}
+      {isPopup1Open && (
+        <div className="popup1">
+          {/* Popup content */}
+          <div className="popup-content">
+            <h3>비밀번호</h3>
+            <input type="password" value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
+            <button className='popupclose' onClick={handleDelete}>확인</button> {/* Close popup button */}
           </div>
         </div>
       )}

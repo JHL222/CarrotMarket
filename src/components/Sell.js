@@ -37,6 +37,7 @@ export default function Sell({ addProduct }) {
       image: imagePreview, // 미리보기 이미지 경로 사용
       like: like,
       contact: contact,
+      password: password,
     };
     if (!title || !price || !description || !imagePreview || !contact) {
       alert("모두 작성해주세요");
@@ -109,14 +110,14 @@ export default function Sell({ addProduct }) {
         </div>
 
         <div className="Password">
-          
+
           <span>비밀번호 확인</span>
           <br />
           <input type="password" className="repassword" value={repassword} onChange={(e) => setRepassword(e.target.value)} placeholder = "비밀번호를 다시 입력해주세요." required />
         </div>
 
       </div>
-      <div className="submit" onChange = {() => {setLike(false)}}onClick={handleSubmit}>작성완료</div>
+      <div className="submit" onChange = {() => {setLike(false)}} onClick={handleSubmit}>작성완료</div>
     </div>
   );
 }
