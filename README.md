@@ -10,7 +10,7 @@
 
 ### 1-3. 팀
 ## Team
-|<img src="https://avatars.githubusercontent.com/u/134079274?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/160108023?v=4" width="150" height="150"/>|
+|<img src="https://avatars.githubusercontent.com/u/160108023?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/134079274?v=4" width="150" height="150"/>
 |:-:|:-:|
 |Lee-JeongHyun<br/>[@JHL222](https://github.com/JHL222)|[@hanjunnn](https://github.com/hanjunnn)|
 
