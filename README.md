@@ -10,8 +10,7 @@
 
 당근마켓을 리액트로 간단하게 구현해서 리액트의 구조를 익힘.
 
-### 1-3. 팀
-## Team
+### 1-3. Team
 |<img src="https://avatars.githubusercontent.com/u/160108023?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/134079274?v=4" width="150" height="150"/>
 |:-:|:-:|
 |Lee-JeongHyun<br/>[@JHL222](https://github.com/JHL222)|[@hanjunnn](https://github.com/hanjunnn)|
