@@ -1,5 +1,3 @@
-<img width="1706" alt="4" src="https://github.com/JHL222/CarrotMarket/assets/160108023/5dd73204-8fc6-4ae1-b4c1-47abefefa16a"><div align="center">
-  
 # 1. 간단한 당근마켓 UI 구현
 
 ### 1-1. 개발기간
@@ -39,7 +37,10 @@
 |<img width="500" alt="1" src="https://github.com/JHL222/CarrotMarket/assets/160108023/35944138-a04f-4b82-8eb6-be67e65c4c16">|<img width="500" alt="2" src="https://github.com/JHL222/CarrotMarket/assets/160108023/7f8b5846-c688-4078-bc0b-11ceb27db78f">|<img width="500" alt="3" src="https://github.com/JHL222/CarrotMarket/assets/160108023/513e6dab-b611-4584-a707-6b68e955e248">|
 |메인페이지|물건 팔기1|물건 팔기2|
 |<img width="500" alt="4" src="https://github.com/JHL222/CarrotMarket/assets/160108023/7a0b7073-9314-44e9-9bb8-b210dee1709b">|<img width="500" alt="5" src="https://github.com/JHL222/CarrotMarket/assets/160108023/e4bfb890-ee2a-4a02-aab6-a1cef1db2dcd">|<img width="500" alt="6" src="https://github.com/JHL222/CarrotMarket/assets/160108023/79551185-e302-48f7-ab79-2166472fdf40">|
-||||||
+|물건추가 후 메인페이지|상세 페이지|연락 팝업|
+|<img width="500" alt="7" src="https://github.com/JHL222/CarrotMarket/assets/160108023/ea24a68f-432b-4c4c-bd92-b98b6d4e028c">|
+|삭제 팝업|
+
 
 
 
