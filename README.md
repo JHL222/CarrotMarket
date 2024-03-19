@@ -15,7 +15,7 @@
 |:-:|:-:|
 |Lee-JeongHyun<br/>[@JHL222](https://github.com/JHL222)|[@hanjunnn](https://github.com/hanjunnn)|
 
-이정현: 전반적인 CSS, 판매 페이지, 상세 페이지, 연락처 및 삭제 팝업<br>
+이정현: 전반적인 CSS, 판매 페이지, 상세 페이지, 연락처 및 삭제 팝업<br/>
 한준 (hanjunnn) : 메인페이지 (판매글 배치 기능, 찜 기능)
    
 ***
